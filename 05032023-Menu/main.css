@@ -31,7 +31,9 @@ html {
 .header .selection-search {
     float: right;
     padding: 9px 16px;
+    display: none;
 }
+
 
 .header .btn-search {
     line-height: 32px;
@@ -109,13 +111,13 @@ html {
 
 .ft-container {
     display: flex;
-    width: 1160px;
+    width: 1024px;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
 
 .ft-info {
-    justify-content: left;
     width: 35%;
 }
 
@@ -148,7 +150,6 @@ html {
 }
 
 .ft-about {
-    justify-content: flex;
     width: 65%;
 }
 
@@ -166,6 +167,8 @@ html {
 
 .dec-contact {
     display: flex;
+    text-decoration: none;
+    color: #000;
 }
 
 .dec-contact>p {
@@ -262,4 +265,51 @@ html {
     padding: 14px 40px 14px 14px;
 }
 
+.ft-menu-select-country .ft-menu-select-control :select {
+    background-color: #f2f2f2;
+}
+
+.select-selected {
+    background-color: aqua;
+}
+
 /* End Footer */
+
+
+@media screen and (min-width: 740px) and (max-width: 1023px) {
+    .header .selection-search {
+        display: block;
+    }
+
+    .header ul {
+        display: none;
+    }
+
+    .ft-container {
+        display: block;
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+
+    .ft-info {
+        width: 100%;
+    }
+
+    .ft-about {
+        width: 100%;
+    }
+
+    .ft-logo {
+        margin-top: 0;
+        padding-top: 40px;
+    }
+
+    .ft-menu-about {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .ft-contact {
+        justify-content: space-between;
+    }
+}
