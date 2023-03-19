@@ -10,7 +10,7 @@ html {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.container {
+.css-container {
     width: 100%;
     /* background-image: linear-gradient(rgb(233, 222, 222), pink); */
     margin-left: auto;
@@ -96,9 +96,93 @@ html {
 
 /* Content */
 .ct-selection {
-    background-color: antiquewhite;
+    padding-top: 100px;
+    padding-bottom: 34px;
     width: 100%;
-    height: 500px;
+    /* display: flex;
+    justify-content: center; */
+}
+
+.ct-grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-items: center;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ct-img {
+    width: 48;
+    height: 48;
+}
+
+.column-grid {
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 0px;
+
+}
+
+.tiltle {
+    font-size: 24px;
+    font-weight: bold;
+    padding-top: 14px;
+}
+
+.decription {
+    margin-top: 10px;
+    font-size: 18px;
+    opacity: 0.6;
+
+}
+
+.icon-container {
+    border-radius: 100px;
+    box-shadow: 0 4px 24px 0 rgba(103, 151, 255, 0.1),
+        0 12px 64px 0 rgba(103, 151, 255, 0.1);
+    padding: 24px;
+}
+
+.ct-wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.column-wrap {
+    display: flex;
+    width: 500px;
+    /* width: calc(100% / 3); */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 0px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+@media screen and (min-width: 880px) and (max-width: 1240px) {
+    .ct-grid {
+        display: grid;
+        grid-template-columns: auto auto;
+        justify-items: center;
+
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 879px) {
+    .ct-grid {
+        display: grid;
+        grid-template-columns: auto;
+        justify-items: center;
+
+        width: 80%;
+    }
 }
 
 /* End Content */
@@ -111,7 +195,7 @@ html {
 
 .ft-container {
     display: flex;
-    width: 1024px;
+    width: 80%;
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -276,7 +360,8 @@ html {
 /* End Footer */
 
 
-@media screen and (min-width: 740px) and (max-width: 1023px) {
+@media screen and (min-width: 880px) and (max-width: 1240px) {
+
     .header .selection-search {
         display: block;
     }
@@ -311,5 +396,35 @@ html {
 
     .ft-contact {
         justify-content: space-between;
+    }
+}
+
+@media screen and (max-width: 879px) {
+
+    .header .selection-search {
+        display: block;
+    }
+
+    .header ul {
+        display: none;
+    }
+
+    .ft-container {
+        display: block;
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+
+    .ft-info {
+        width: 100%;
+    }
+
+    .ft-about {
+        display: none;
+    }
+
+    .ft-logo {
+        margin-top: 0;
+        padding-top: 40px;
     }
 }
