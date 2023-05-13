@@ -18,7 +18,7 @@ html {
 }
 
 /* Header */
-.header {
+/* .header {
     position: fixed;
     top: 0;
     width: 100%;
@@ -90,7 +90,7 @@ html {
     border-radius: 4px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
+} */
 
 /* End Header */
 
@@ -213,8 +213,6 @@ html {
 .ft-logo img {
     height: 64px;
 }
-
-.ft-address {}
 
 .ft-address-header {
     text-transform: uppercase;
