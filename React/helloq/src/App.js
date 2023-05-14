@@ -8,7 +8,6 @@ function App() {
     console.log(dataList)
     const cards = dataList.map((data) => (
         <Card
-          key={data.id} // Thêm key để giúp React xác định các phần tử trong danh sách
           image={data.image}
           title={data.title}
           decription={data.decription}
