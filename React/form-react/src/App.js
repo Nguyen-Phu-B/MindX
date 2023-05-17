@@ -4,6 +4,7 @@ import InputCustom from "./Components/InputCustom";
 import SelectionCustom from "./Components/SelectionCustom";
 import * as React from "react";
 import { TextField } from "@mui/material";
+import TextareaCustom from "./Components/TextareaCustom";
 
 const dataCourse = [
   { value: 0, label: "Course" },
@@ -66,55 +67,68 @@ function App() {
         </div>
         <div className="">
           <label for="phone-first">Phone :</label>
-          <input
+          {/* <input
             className="form-control"
             type="text"
             name=""
             id="phone-first"
             value="+91"
-          />
-          <InputCustom type="text" name="phonefirst" value="2" />
-          <input
+          /> */}
+          <InputCustom type="text" name="phonefirst" value="+91" />
+          <InputCustom type="text" name="phonesecond" placeholder="phone no." />
+          {/* <input
             className="form-control"
             type="text"
             name=""
             id="phone-second"
             placeholder="phone no."
-          />
+          /> */}
         </div>
 
         <div className="">
           <label for="txt-current">Current Address:</label>
-          <textarea
+          {/* <textarea
             className="form-control"
             name=""
             id="txt-current"
             cols="30"
             rows="10"
             placeholder="Current Address"
-          ></textarea>
+          ></textarea> */}
+          <TextareaCustom
+            name="txtCurrentAddress"
+            cols="30"
+            rows="10"
+            placeholder="Current Address"
+          />
         </div>
         <div className="">
           <label className="text-bold" for="email">
             Email
           </label>
-          <input
+          <InputCustom type="email" name="email" placeholder="Enter Email" />
+          {/* <input
             className="form-control"
             type="email"
             name=""
             id="email"
             placeholder="Enter Email"
-          />
+          /> */}
         </div>
         <div className="">
           <label className="text-bold" for="password">
             Password
           </label>
-          <input
+          {/* <input
             className="form-control"
             type="password"
             name=""
             id="password"
+            placeholder="Enter Password"
+          /> */}
+          <InputCustom
+            type="password"
+            name="pass"
             placeholder="Enter Password"
           />
         </div>
@@ -122,11 +136,16 @@ function App() {
           <label className="text-bold" for="re-password">
             Re-type Password
           </label>
-          <input
+          {/* <input
             className="form-control"
             type="password"
             name=""
             id="re-password"
+            placeholder="Retype Password"
+          /> */}
+          <InputCustom
+            type="password"
+            name="repass"
             placeholder="Retype Password"
           />
         </div>
