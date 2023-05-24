@@ -2,10 +2,14 @@ import logo from "./logo.svg";
 import "./App.css";
 import CardNews from "./Components/CardNews";
 import Hooks from "./Render/Hook";
+import ChangeLight from "./Render/ChangeLight";
 
 function App() {
     return (
-        <Hooks />
+        <ChangeLight />
+
+        // <Hooks />
+
         // <div className="App row">
         //     <div className="col-6">
         //         <CardNews imgShow={false} />
