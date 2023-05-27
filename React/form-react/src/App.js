@@ -6,17 +6,19 @@ import * as React from "react";
 import { TextField } from "@mui/material";
 import TextareaCustom from "./Components/TextareaCustom";
 import useHookRegister from "./Components/useHook";
+import ErrorCustom from "./Components/ErrorCustom";
 
 const dataCourse = [
-    { value: 0, label: "Course" },
+    { value: "", label: "Course" },
     { value: "frontend", label: "FrontEnd" },
     { value: "backend", label: "BackEnd" },
     { value: "fullstack", label: "FullStack" },
 ];
 
 function App() {
-    const { onChange, user, emailError, phoneError, courseError, selValue } =
-        useHookRegister(dataCourse[0]?.value);
+    const { onChange, user, onSubmit, error } = useHookRegister();
+    // const { onChange, user, emailError, phoneError, courseError, selValue } =
+    //     useHookRegister();
     return (
         <div className="container">
             <form action="">
@@ -24,12 +26,6 @@ function App() {
 
                 <div>
                     <label htmlFor="firstname">Firstname :</label>
-                    {/* <TextField
-                        style={{ width: "100%" }}
-                        id="outlined-basic"
-                        label="FirstName"
-                        variant="outlined"
-                    /> */}
                     <InputCustom
                         type="text"
                         name="firstname"
@@ -37,16 +33,18 @@ function App() {
                         value={user.FirstName}
                         onChange={(e) => onChange(e, "firstname")}
                     />
+                    <ErrorCustom err={error.FirstName} />
                 </div>
                 <div>
-                    <label htmlFor="midlename">Midlename :</label>
+                    <label htmlFor="middlename">Middlename :</label>
                     <InputCustom
                         type="text"
-                        name="midlename"
+                        name="middlename"
                         placeholder="MiddleName"
                         value={user.MiddleName}
                         onChange={(e) => onChange(e, "middlename")}
                     />
+                    <ErrorCustom err={error.MiddleName} />
                 </div>
                 <div>
                     <label htmlFor="lastname">Lastname :</label>
@@ -57,6 +55,7 @@ function App() {
                         value={user.LastName}
                         onChange={(e) => onChange(e, "lastname")}
                     />
+                    <ErrorCustom err={error.LastName} />
                 </div>
                 <div className="">
                     <label htmlFor="slc-course">Course:</label>
@@ -64,23 +63,40 @@ function App() {
                         id="slc_course"
                         name="course"
                         data={dataCourse}
-                        value={selValue}
                         onChange={(e) => onChange(e, "course")}
                     />
-                    {courseError && (
-                        <span style={{ color: "red" }}>Course is invalid</span>
-                    )}
+                    <ErrorCustom err={error.Course} />
                 </div>
                 <div className="radio-gender">
                     <label htmlFor="gender">Gender :</label>
                     <br />
-                    <InputCustom type="radio" name="gender" value="0" />
+                    <InputCustom
+                        type="radio"
+                        name="gender"
+                        value="male"
+                        checked={user.Gender == "male"}
+                        onChange={(e) => onChange(e, "gender")}
+                    />
                     Male
-                    <InputCustom type="radio" name="gender" value="1" />
+                    <InputCustom
+                        type="radio"
+                        name="gender"
+                        value="female"
+                        checked={user.Gender == "female"}
+                        onChange={(e) => onChange(e, "gender")}
+                    />
                     Female
-                    <InputCustom type="radio" name="gender" value="2" />
+                    <InputCustom
+                        type="radio"
+                        name="gender"
+                        value="order"
+                        checked={user.Gender == "order"}
+                        onChange={(e) => onChange(e, "gender")}
+                    />
                     Order
                 </div>
+                <ErrorCustom err={error.Gender} />
+
                 <div className="">
                     <label htmlFor="phone-first">Phone :</label>
                     <InputCustom
@@ -90,21 +106,7 @@ function App() {
                         value={user.PhoneNumst}
                         onChange={(e) => onChange(e, "phonenumst")}
                     />
-                    {phoneError && (
-                        <span style={{ color: "red" }}>
-                            Phonenumber is invalid
-                        </span>
-                    )}
-                    {/* <InputCustom
-                        type="text"
-                        name="phonesecond"
-                        placeholder="phone no."
-                        value={user.PhoneNumsd}
-                        onChange={(e) => onChange(e, "phonenumsd")}
-                    />
-                    {phoneError && (
-                        <span style={{ color: "red" }}>Email is invalid</span>
-                    )} */}
+                    <ErrorCustom err={error.PhoneNumst} />
                 </div>
 
                 <div className="">
@@ -114,7 +116,10 @@ function App() {
                         cols="30"
                         rows="10"
                         placeholder="Current Address"
+                        value={user.Address}
+                        onChange={(e) => onChange(e, "address")}
                     />
+                    <ErrorCustom err={error.Address} />
                 </div>
                 <div className="">
                     <label className="text-bold" htmlFor="email">
@@ -127,9 +132,7 @@ function App() {
                         value={user.Email}
                         onChange={(e) => onChange(e, "email")}
                     />
-                    {emailError && (
-                        <span style={{ color: "red" }}>Email is invalid</span>
-                    )}
+                    <ErrorCustom err={error.Email} />
                 </div>
                 <div className="">
                     <label className="text-bold" htmlFor="password">
@@ -139,7 +142,10 @@ function App() {
                         type="password"
                         name="pass"
                         placeholder="Enter Password"
+                        value={user.Password}
+                        onChange={(e) => onChange(e, "pass")}
                     />
+                    <ErrorCustom err={error.Password} />
                 </div>
                 <div className="">
                     <label className="text-bold" htmlFor="re-password">
@@ -149,9 +155,12 @@ function App() {
                         type="password"
                         name="repass"
                         placeholder="Retype Password"
+                        value={user.RePass}
+                        onChange={(e) => onChange(e, "repass")}
                     />
+                    <ErrorCustom err={error.RePass} />
                 </div>
-                <a className="btn" href="">
+                <a className="btn" href="" onClick={(e) => onSubmit(e)}>
                     Register
                 </a>
             </form>
