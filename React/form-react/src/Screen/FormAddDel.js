@@ -1,166 +1,134 @@
-import InputCustom from "../Components/InputCustom";
-import SelectionCustom from "../Components/SelectionCustom";
-import TextareaCustom from "../Components/TextareaCustom";
-import useHookRegister from "../Components/useHook";
-import ErrorCustom from "../Components/ErrorCustom";
+import InputCustome from "../Components/InputCustom";
+import ErrorCustome from "../Components/ErrorCustom";
+import useHookAddDel from "../Hook/formAddDelHook";
 
-const dataCourse = [
-    { value: "", label: "Course" },
-    { value: "frontend", label: "FrontEnd" },
-    { value: "backend", label: "BackEnd" },
-    { value: "fullstack", label: "FullStack" },
-];
-
-const FormUser = () => {
-    const { onChange, user, onSubmit, error } = useHookRegister();
-
+const FormAddDel = () => {
+    const {
+        onChangeS,
+        listData,
+        data,
+        btnAddClick,
+        err,
+        btnDelClick,
+        btnEditClick,
+        btnV,
+        btnEditUpdate,
+        dataEdit,
+    } = useHookAddDel();
     return (
         <div className="container">
             <form action="">
-                <h1 className="title">Student Registration Form</h1>
-
                 <div>
-                    <label htmlFor="firstname">Firstname :</label>
-                    <InputCustom
+                    <label htmlFor="firstname">Họ :</label>
+                    <InputCustome
                         type="text"
                         name="firstname"
-                        placeholder="FirstName"
-                        value={user.FirstName}
-                        onChange={(e) => onChange(e, "firstname")}
+                        onChange={(e) => onChangeS(e, "firstname")}
+                        value={data.firstName}
                     />
-                    <ErrorCustom err={error.FirstName} />
+                    <ErrorCustome err={err.firstName} />
                 </div>
                 <div>
-                    <label htmlFor="middlename">Middlename :</label>
-                    <InputCustom
+                    <label htmlFor="name">Tên :</label>
+                    <InputCustome
                         type="text"
-                        name="middlename"
-                        placeholder="MiddleName"
-                        value={user.MiddleName}
-                        onChange={(e) => onChange(e, "middlename")}
+                        name="name"
+                        onChange={(e) => onChangeS(e, "lastname")}
+                        value={data.lastName}
                     />
-                    <ErrorCustom err={error.MiddleName} />
-                </div>
-                <div>
-                    <label htmlFor="lastname">Lastname :</label>
-                    <InputCustom
-                        type="text"
-                        name="lastname"
-                        placeholder="LastName"
-                        value={user.LastName}
-                        onChange={(e) => onChange(e, "lastname")}
-                    />
-                    <ErrorCustom err={error.LastName} />
-                </div>
-                <div className="">
-                    <label htmlFor="slc-course">Course:</label>
-                    <SelectionCustom
-                        id="slc_course"
-                        name="course"
-                        data={dataCourse}
-                        onChange={(e) => onChange(e, "course")}
-                    />
-                    <ErrorCustom err={error.Course} />
+                    <ErrorCustome err={err.lastName} />
                 </div>
                 <div className="radio-gender">
                     <label htmlFor="gender">Gender :</label>
                     <br />
-                    <InputCustom
+                    <InputCustome
                         type="radio"
                         name="gender"
-                        value="male"
-                        checked={user.Gender == "male"}
-                        onChange={(e) => onChange(e, "gender")}
+                        value={0}
+                        checked={data.gender == 0}
+                        onChange={(e) => onChangeS(e, "gender")}
                     />
                     Male
-                    <InputCustom
+                    <InputCustome
                         type="radio"
                         name="gender"
-                        value="female"
-                        checked={user.Gender == "female"}
-                        onChange={(e) => onChange(e, "gender")}
+                        value={1}
+                        checked={data.gender == 1}
+                        onChange={(e) => onChangeS(e, "gender")}
                     />
                     Female
-                    <InputCustom
-                        type="radio"
-                        name="gender"
-                        value="order"
-                        checked={user.Gender == "order"}
-                        onChange={(e) => onChange(e, "gender")}
-                    />
-                    Order
                 </div>
-                <ErrorCustom err={error.Gender} />
+                {btnV == 0 ? (
+                    <a
+                        className="btn__ btn-dark"
+                        href=""
+                        onClick={(e) => btnAddClick(e)}
+                    >
+                        Thêm
+                    </a>
+                ) : (
+                    <a
+                        className="btn__ btn-dark"
+                        href=""
+                        data-id={dataEdit}
+                        onClick={(e) => btnEditUpdate(e)}
+                    >
+                        Edit
+                    </a>
+                )}
 
-                <div className="">
-                    <label htmlFor="phone-first">Phone :</label>
-                    <InputCustom
-                        type="text"
-                        name="phonefirst"
-                        placeholder="+81"
-                        value={user.PhoneNumst}
-                        onChange={(e) => onChange(e, "phonenumst")}
-                    />
-                    <ErrorCustom err={error.PhoneNumst} />
-                </div>
-
-                <div className="">
-                    <label htmlFor="txt-current">Current Address:</label>
-                    <TextareaCustom
-                        name="txtCurrentAddress"
-                        cols="30"
-                        rows="10"
-                        placeholder="Current Address"
-                        value={user.Address}
-                        onChange={(e) => onChange(e, "address")}
-                    />
-                    <ErrorCustom err={error.Address} />
-                </div>
-                <div className="">
-                    <label className="text-bold" htmlFor="email">
-                        Email
-                    </label>
-                    <InputCustom
-                        type="text"
-                        name="email"
-                        placeholder="Enter Email"
-                        value={user.Email}
-                        onChange={(e) => onChange(e, "email")}
-                    />
-                    <ErrorCustom err={error.Email} />
-                </div>
-                <div className="">
-                    <label className="text-bold" htmlFor="password">
-                        Password
-                    </label>
-                    <InputCustom
-                        type="password"
-                        name="pass"
-                        placeholder="Enter Password"
-                        value={user.Password}
-                        onChange={(e) => onChange(e, "pass")}
-                    />
-                    <ErrorCustom err={error.Password} />
-                </div>
-                <div className="">
-                    <label className="text-bold" htmlFor="re-password">
-                        Re-type Password
-                    </label>
-                    <InputCustom
-                        type="password"
-                        name="repass"
-                        placeholder="Retype Password"
-                        value={user.RePass}
-                        onChange={(e) => onChange(e, "repass")}
-                    />
-                    <ErrorCustom err={error.RePass} />
-                </div>
-                <a className="btn" href="" onClick={(e) => onSubmit(e)}>
-                    Register
-                </a>
+                <table class="table" style={{ marginTop: "16px" }}>
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Họ và tên</th>
+                            <th scope="col">Giới tính</th>
+                            <th scope="col">Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {listData.map((item, index) => {
+                            return (
+                                <tr>
+                                    <th scope="row">{index + 1}</th>
+                                    <td>
+                                        {item.firstName + " " + item.lastName}
+                                    </td>
+                                    <td>{item.gender === 0 ? "Nam" : "Nữ"}</td>
+                                    <td>
+                                        <div className="row ">
+                                            <div className="col-3 d-grid">
+                                                <button
+                                                    data-id={item.id}
+                                                    onClick={(e) =>
+                                                        btnEditClick(e)
+                                                    }
+                                                    className="btn btn-success btn-sm"
+                                                >
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </button>
+                                            </div>
+                                            <div className="col-3 d-grid">
+                                                <button
+                                                    data-id={item.id}
+                                                    className="btn btn-danger btn-sm"
+                                                    onClick={(e) =>
+                                                        btnDelClick(e)
+                                                    }
+                                                >
+                                                    <i class="fa-solid fa-trash "></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            );
+                        })}
+                    </tbody>
+                </table>
             </form>
         </div>
     );
 };
 
-export default FormUser;
+export default FormAddDel;

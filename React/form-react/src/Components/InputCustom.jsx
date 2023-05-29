@@ -1,4 +1,4 @@
-const InputCustom = ({ type, name, placeholder, value, onChange }) => {
+const InputCustom = ({ type, name, placeholder, value, onChange,checked }) => {
     return type == "text" ? (
         <input
             className="form-control"
@@ -14,6 +14,7 @@ const InputCustom = ({ type, name, placeholder, value, onChange }) => {
             name={name}
             value={value}
             placeholder={placeholder}
+            checked={checked}
             onChange={onChange}
             style={{ margin: "0 5px" }}
         />

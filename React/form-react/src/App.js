@@ -1,10 +1,11 @@
 import logo from "./logo.svg";
+
 import "./App.css";
 import * as React from "react";
-import FormUser from "./Screen/FormUser";
+import FormAddDel from "./Screen/FormAddDel";
 
 function App() {
-    return;
+    return <FormAddDel />;
 }
 
 export default App;
