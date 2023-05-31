@@ -81,8 +81,8 @@ const useHookAddDel = () => {
     // hàm reset value của input
     const rsIpDef = () => {
         const dataClone = JSON.parse(JSON.stringify(data));
-        dataClone.firstName = "";
-        dataClone.lastName = "";
+        dataClone.firstName = "Nguyễn";
+        dataClone.lastName = "A";
         dataClone.gender = 0;
 
         setData(dataClone);

@@ -94,7 +94,7 @@ const FormAddDel = () => {
                                     <td>
                                         {item.firstName + " " + item.lastName}
                                     </td>
-                                    <td>{item.gender === 0 ? "Nam" : "Nữ"}</td>
+                                    <td>{item.gender == 0 ? "Nam" : "Nữ"}</td>
                                     <td>
                                         <div className="row ">
                                             <div className="col-3 d-grid">
