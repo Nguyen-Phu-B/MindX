@@ -1,7 +1,7 @@
 import InputCustom from "../Components/InputCustom";
 import SelectionCustom from "../Components/SelectionCustom";
 import TextareaCustom from "../Components/TextareaCustom";
-import useHookRegister from "../Components/useHook";
+import useHookRegister from "../Hook/useHook";
 import ErrorCustom from "../Components/ErrorCustom";
 
 const dataCourse = [
