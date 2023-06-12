@@ -101,9 +101,9 @@ const useHookFilter = () => {
                 ).includes(Remove_Viet(filterVal));
             });
             setList(resultSearchName);
-            console.log("lisst", listClone);
-            console.log("filterVal", filterVal);
-            console.log("filterValRél", resultSearchName);
+            // console.log("lisst", listClone);
+            // console.log("filterVal", filterVal);
+            // console.log("filterValRél", resultSearchName);
         }
     }, [filter]);
 

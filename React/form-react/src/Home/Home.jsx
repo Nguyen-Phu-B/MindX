@@ -44,6 +44,16 @@ const Home = () => {
                         </Link>
                     </div>
                 </div>
+                <div className="col">
+                    <div className="alert alert-dark">
+                        <Link
+                            className="text-decoration-none"
+                            to="/formapi"
+                        >
+                            Form Api
+                        </Link>
+                    </div>
+                </div>
             </div>
         </div>
     );
