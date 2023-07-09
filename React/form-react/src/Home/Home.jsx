@@ -6,51 +6,46 @@ const Home = () => {
             <div className="row">
                 <div className="col">
                     <div className="alert alert-dark">
-                        <Link
-                            className="text-decoration-none"
-                            to="/formuser"
-                        >
+                        <Link className="text-decoration-none" to="/formuser">
                             Form User
                         </Link>
                     </div>
                 </div>
                 <div className="col">
                     <div className="alert alert-light">
-                        <Link
-                            className="text-decoration-none"
-                            to="/formfilter"
-                        >
+                        <Link className="text-decoration-none" to="/formfilter">
                             Form Fillter
                         </Link>
                     </div>
                 </div>
                 <div className="col">
                     <div className="alert alert-dark">
-                        <Link
-                            className="text-decoration-none"
-                            to="/formadddel"
-                        >
+                        <Link className="text-decoration-none" to="/formadddel">
                             Form Add Delete
                         </Link>
                     </div>
                 </div>
                 <div className="col">
                     <div className="alert alert-light">
-                        <Link
-                            className="text-decoration-none"
-                            to="/formtheme"
-                        >
+                        <Link className="text-decoration-none" to="/formtheme">
                             Form Themes
+                        </Link>
+                    </div>
+                </div>
+            </div>
+
+            <div className="row">
+                <div className="col">
+                    <div className="alert alert-dark">
+                        <Link className="text-decoration-none" to="/formapi">
+                            Form Api
                         </Link>
                     </div>
                 </div>
                 <div className="col">
                     <div className="alert alert-dark">
-                        <Link
-                            className="text-decoration-none"
-                            to="/formapi"
-                        >
-                            Form Api
+                        <Link className="text-decoration-none" to="/testmemo">
+                            Test Memo
                         </Link>
                     </div>
                 </div>
